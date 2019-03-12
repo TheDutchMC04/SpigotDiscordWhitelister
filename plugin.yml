@@ -1,0 +1,10 @@
+main: nl.thedutchmc.spigotdiscordwhitelister.spigot.Main
+name: SpigotWhitelister
+version: 1.0
+author: TheDutchMC
+description: Whitelister for Spigot 1.13.2, works with DiscordWhitelister
+commands:
+  sw:
+    description: General SW Command
+    usage: /sw <subcommand>
+    permission: spigotwhitelister.help
