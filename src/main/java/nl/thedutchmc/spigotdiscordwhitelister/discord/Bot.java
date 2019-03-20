@@ -30,12 +30,6 @@ public class Bot {
 			DutchWhitelistBot.tellConsole("bot", "Please set botToken!");
 		}
 	}
-
-	public static void main(String[] args) {
-		String token = "NTUyODc5ODg4OTIzNzU0NTMx.D2a56Q.pxIyEsYlWD0zQ0h3RJr06OeE32g";
-		String roleId = "Nah";
-		bot(token, roleId);
-	}
 	
 	public static void bot(String token, String roleId) {
 		
