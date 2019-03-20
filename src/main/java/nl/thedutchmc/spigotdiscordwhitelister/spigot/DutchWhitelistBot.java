@@ -5,7 +5,9 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
 
 import nl.thedutchmc.spigotdiscordwhitelister.discord.Bot;
 
@@ -36,7 +38,7 @@ public class DutchWhitelistBot extends JavaPlugin {
 				autoWhitelist = false;
 			}
 		//Enabling Discord Bot
-		Bot.init(config.getString("botToken"), config.getLong("roleId"));
+		Bot.init(config.getString("botToken"), config.getLong("roleId"), this);
 		
 	}
 	
@@ -112,11 +114,6 @@ public class DutchWhitelistBot extends JavaPlugin {
 		return false;
 	}
 	
-	public static void whitelist(String string) {
-		tellConsole("Plugin", "I Shall Whitelist the crap out of you!");
-		Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "whitelist add " + string);
-	}
-	
 	public void config() {
 		//TODO
 		tellConsole("plugin", "Config Sector");
@@ -124,5 +121,10 @@ public class DutchWhitelistBot extends JavaPlugin {
 		this.saveDefaultConfig();
 		tellConsole("plugin", "done");
 
+	}
+	
+	public void whielist(String string) {
+		tellConsole("Plugin", "I Shall Whitelist the crap out of you!");
+		Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "whitelist add " + string);
 	}
 }

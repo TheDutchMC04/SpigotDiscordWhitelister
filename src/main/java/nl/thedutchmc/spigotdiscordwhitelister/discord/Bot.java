@@ -12,7 +12,10 @@ import nl.thedutchmc.spigotdiscordwhitelister.spigot.DutchWhitelistBot;
 
 public class Bot {
 	
-	public static void init(String token, Long roleId) {
+	private DutchWhitelistBot plugin;
+	
+	public static void init(String token, Long roleId, DutchWhitelistBot plugin) {
+		this.plugin = plugin;
 		String roleIdString = roleId.toString();
 		
 		if(!token.equalsIgnoreCase("ENTER TOKEN HERE!")) {
@@ -69,7 +72,7 @@ public class Bot {
             		}
             	}
            		if(shouldBeWhitelisted) {
-           			DutchWhitelistBot.whitelist(event.getMessageAuthor().getName());
+           			plugin.whitelist(event.getMessageAuthor().getName());
            			event.getChannel().sendMessage("YES YES YES WE HAVE GOT A BINGO! (You're whitelisted)");
            		} else {
            			event.getChannel().sendMessage("Errr check your role, ya can't play here");
